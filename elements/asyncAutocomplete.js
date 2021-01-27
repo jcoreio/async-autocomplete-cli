@@ -60,7 +60,7 @@ class AsyncAutocompletePrompt extends Prompt {
     }
     const cancelationToken = (this.cancelationToken = new CancelationToken())
 
-    const suggestionsCallback = suggestions => {
+    const suggestionsCallback = (suggestions) => {
       if (cancelationToken.canceled) return
 
       if (cancelationToken !== this.cancelationToken) return
@@ -70,7 +70,7 @@ class AsyncAutocompletePrompt extends Prompt {
         description: s.description,
       }))
       this.completing = false
-      const initialIndex = suggestions.findIndex(s => s.initial)
+      const initialIndex = suggestions.findIndex((s) => s.initial)
       if (initialIndex >= 0) {
         this.moveSelect(initialIndex)
       } else {

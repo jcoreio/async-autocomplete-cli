@@ -48,7 +48,7 @@ async function go() {
       for (const { Instances } of Reservations || []) {
         for (const Instance of Instances || []) {
           const { InstanceId, Tags = [] } = Instance
-          const name = (Tags.find(t => t.Key === 'Name') || {}).Value
+          const name = (Tags.find((t) => t.Key === 'Name') || {}).Value
           results.push({
             title: `${InstanceId} ${name || ''}`,
             value: Instance,
@@ -90,10 +90,10 @@ The `suggest` function will be called with:
 
 ### Options
 
-| Param      |    Type    | Description                                                                                                        |
-| ---------- | :--------: | ------------------------------------------------------------------------------------------------------------------ |
-| message    |  `string`  | Prompt message to display                                                                                          |
-| suggest    | `function` | Function to fetch choices                                                                                          |
-| limit      |  `number`  | Max number of results to show. Defaults to `10`                                                                    |
-| style      |  `string`  | Render style (`default`, `password`, `invisible`, `emoji`). Defaults to `'default'`                                |
-| clearFirst | `boolean`  | The first ESCAPE keypress will clear the input                                                                     |
+| Param      |    Type    | Description                                                                         |
+| ---------- | :--------: | ----------------------------------------------------------------------------------- |
+| message    |  `string`  | Prompt message to display                                                           |
+| suggest    | `function` | Function to fetch choices                                                           |
+| limit      |  `number`  | Max number of results to show. Defaults to `10`                                     |
+| style      |  `string`  | Render style (`default`, `password`, `invisible`, `emoji`). Defaults to `'default'` |
+| clearFirst | `boolean`  | The first ESCAPE keypress will clear the input                                      |

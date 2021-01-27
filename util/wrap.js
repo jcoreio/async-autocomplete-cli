@@ -15,7 +15,7 @@ module.exports = (msg, opts = {}) => {
 
   return (msg || '')
     .split(/\r?\n/g)
-    .map(line =>
+    .map((line) =>
       line
         .split(/\s+/g)
         .reduce(

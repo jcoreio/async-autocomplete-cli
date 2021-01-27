@@ -10,7 +10,7 @@ const up = '\u001b[A'
 const down = '\u001b[B'
 const enter = String.fromCharCode(13)
 
-const delay = wait => new Promise(resolve => setTimeout(resolve, wait))
+const delay = (wait) => new Promise((resolve) => setTimeout(resolve, wait))
 
 function testAsyncAutocomplete(options) {
   const stdin = new PassThrough()
@@ -25,7 +25,7 @@ function testAsyncAutocomplete(options) {
     nextOutput = ''
   }
 
-  stdout.on('data', chunk => {
+  stdout.on('data', (chunk) => {
     nextOutput += chunk.toString('utf8')
   })
 
@@ -40,8 +40,8 @@ function testAsyncAutocomplete(options) {
   }
 }
 
-describe('asyncAutocomplete', function() {
-  it('works', async function() {
+describe('asyncAutocomplete', function () {
+  it('works', async function () {
     const recent = [
       { title: 'Foo (recent)', value: 'foo' },
       { title: 'Bar (recent)', value: 'bar' },

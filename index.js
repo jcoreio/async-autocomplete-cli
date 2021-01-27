@@ -1,7 +1,7 @@
 'use strict'
 
 const el = require('./elements')
-const noop = v => v
+const noop = (v) => v
 
 function toPrompt(type, args, opts = {}) {
   return new Promise((res, rej) => {
@@ -10,9 +10,9 @@ function toPrompt(type, args, opts = {}) {
     const onSubmit = opts.onSubmit || noop
     const onExit = opts.onExit || noop
     p.on('state', args.onState || noop)
-    p.on('submit', x => res(onSubmit(x)))
-    p.on('exit', x => res(onExit(x)))
-    p.on('abort', x => rej(onAbort(x)))
+    p.on('submit', (x) => res(onSubmit(x)))
+    p.on('exit', (x) => res(onExit(x)))
+    p.on('abort', (x) => rej(onAbort(x)))
   })
 }
 
@@ -29,6 +29,6 @@ function toPrompt(type, args, opts = {}) {
  * @param {Function} [args.afterRender] called after each render
  * @returns {Promise} Promise that resolves to user-selected value
  */
-exports.asyncAutocomplete = args => {
+exports.asyncAutocomplete = (args) => {
   return toPrompt('AsyncAutocompletePrompt', args)
 }
